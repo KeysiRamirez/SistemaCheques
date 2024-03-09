@@ -64,7 +64,7 @@ namespace SistemaCheques.Models.Datos
 				{
 					while (dr.Read())
 					{
-							ConceptoPago.IdConceptoPago = Convert.ToInt32(dr["idConceptoPago"]);
+						ConceptoPago.idConceptoPago = Convert.ToInt32(dr["idConceptoPago"]);
 							ConceptoPago.Descripcion = dr["Descripcion"].ToString();
 							ConceptoPago.Estado = dr["Estado"].ToString();
 		
