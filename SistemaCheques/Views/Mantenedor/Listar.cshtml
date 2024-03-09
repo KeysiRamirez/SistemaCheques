@@ -1,0 +1,46 @@
+﻿@model List<ConceptoPagoModel>
+
+
+<!--Agregar los modelos de proveedores y de solicitud de cheques-->
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1> Consulta por criterios </h1>
+<table class="table caption-top">
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-dark"> <i class="bi bi-plus-circle"></i> Crear nueva solicitud </a>
+    </div>
+    
+    <caption>Cheques generados</caption>
+    
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Concepto de pago</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.idConceptoPago</td>
+                <td>@item.Descripcion</td>
+                <td>Aca el nombre del proveedor</td>
+                <td>@item.Estado</td>
+
+                <td>
+                    <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-secondary btn-sm" asp-route-idConceptoPago="@item.idConceptoPago"> <i class="bi bi-pencil-square"></i></a>
+                    <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm" asp-route-idConceptoPago="@item.idConceptoPago"> <i class="bi bi-trash"></i> </a>
+                </td>
+            </tr> 
+        }
+
+    </tbody>
+</table>
+
