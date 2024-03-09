@@ -1,0 +1,76 @@
+﻿@model ProveedoresModel
+@{
+    ViewData["Title"] = "GuardarProveedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card text-center" style="width: 40%;">
+    <div class="card-header">
+        Especifique el concepto de pago
+    </div>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="ProveedoresMatenedor" method="post">
+
+            <!-- Nombre -->
+            <div class="mb-4">
+                <label for="Nombre" class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control" id="Nombre">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+
+            </div>
+
+            <!-- Tipo de persona -->
+            <label for="TipoPersona" class="form-label"> Tipo de Persona </label> <br />
+
+            <select asp-for="TipoPersona" class="form-select" aria-label="Default select example">
+                <option selected disabled>Seleccione el tipo de persona</option>
+                <option value="Juridica">Juridica</option>
+                <option value="Fisica">Fisica</option>
+            </select>
+
+            <!-- Cedula -->
+            <div class="mb-4">
+                <label for="Cedula" class="form-label">Cedula</label>
+                <input asp-for="Cedula" type="text" class="form-control" id="Cedula" maxlength="11">
+                <span asp-validation-for="Cedula" class="text-danger"></span>
+
+            </div>
+
+            <!-- Balance -->
+            <div class="mb-4">
+                <label for="Balance" class="form-label">Balance</label>
+                <input asp-for="Balance" type="text" class="form-control" id="Balance">
+                <span asp-validation-for="Balance" class="text-danger"></span>
+
+            </div>
+
+            <!-- Cuenta Contable -->
+            <div class="mb-4">
+                <label for="CuentaContable" class="form-label">Cuenta Contable</label>
+                <input asp-for="CuentaContable" type="text" class="form-control" id="CuentaContable" maxlength="10">
+                <span asp-validation-for="CuentaContable" class="text-danger"></span>
+
+            </div>
+
+
+            <!-- Estado -->
+            <div class="mb-4">
+                <label for="Estado" class="form-label">Estado</label>
+                <select asp-for="Estado" class="form-select" aria-label="Default select example">
+                    <option selected>Seleccione el tipo de persona</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Aprobado">Aprobado</option>
+                    <option value="En Proceso">En Proceso</option>
+                    <option value="Pagado">Pagado</option>
+                    <option value="Rechazado">Rechazado</option>
+                    <option value="Aprobado">Aprobado</option>
+                </select>
+
+            </div>
+
+            <button type="submit" class="d-grid gap-2 col-2 mx-auto btn btn-success">Guardar</button>
+            <a asp-action="Listar" asp-controller="ProveedoresMatenedor" class="btn btn-dark"> Regresar a la lista </a>
+        </form>
+    </div>
+</div>
+

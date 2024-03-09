@@ -1,0 +1,51 @@
+﻿@model List<ProveedoresModel>
+@{
+    ViewData["Title"] = "ListarProveedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1> Consulta por criterios </h1>
+<table class="table caption-top">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a asp-action="Guardar" asp-controller="ProveedoresMatenedor" class="btn btn-dark"> <i class="bi bi-plus-circle"></i> Crear un nuevo proveedores </a>
+    </div>
+
+    <caption>Proveedores registrados</caption>
+
+    <thead>
+        <tr>
+            <th scope="col">ID del Proveedor</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo de Persona</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Balace</th>
+            <th scope="col">Cuenta Contable</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.idProveedor</td>
+                <td>@item.Nombre</td>
+                <td>@item.TipoPersona</td>
+                <td>@item.Cedula</td>
+                <td>@item.Balance</td>
+                <td>@item.CuentaContable</td>
+                <td>@item.Estado</td>
+
+                <td>
+                    <a asp-action="Editar" asp-controller="ProveedoresMatenedor" class="btn btn-secondary btn-sm" asp-route-item.idProveedoro="@item.idProveedor"> <i class="bi bi-pencil-square"></i></a>
+                    <a asp-action="Eliminar" asp-controller="ProveedoresMatenedor" class="btn btn-danger btn-sm" asp-route-item.idProveedor="@item.idProveedor"> <i class="bi bi-trash"></i> </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,31 @@
+﻿@model ConceptoPagoModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+<div class="card text-center" style="width: 40%;">
+    <div class="card-header">
+        Editar concepto de pago
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="Mantenedor" method="post">
+
+            <input asp-for="idConceptoPago" type="hidden" class="form-control">
+
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                <div>
+                    Desea eliminar el concepto de pago? :  @Html.DisplayTextFor(m => m.Descripcion) ?      
+                </div>
+            </div>
+
+            <button type="submit" class="d-grid gap-2 col-2 mx-auto btn btn-danger">Eliminar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-dark"> Regresar a la lista </a>
+        </form>
+    </div>
+</div>
+
+
